@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  hreact:
+    image: continuumio/anaconda3:latest
+    container_name: 'jira_api'
+    hostname: 'jira_api'
+    ports:
+      - '8000:8000'
+    stdin_open: true
+    tty: true
+    networks:
+      - mernnet
+    working_dir: '/home/jira_api'
+    volumes:
+      - ./:/home/jira_api
+    networks:
+      - mernnet
+networks:
+  mernnet:
+    external: true
